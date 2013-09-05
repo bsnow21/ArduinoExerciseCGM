@@ -1,0 +1,18 @@
+int ledPin = 3; 
+int switchPin1 = A0; /* increment LED */
+int switchPin2 = A1; /* decrement LED */
+int ledLevel = 0; // 0 to 255 
+
+void set up(){
+  pinMode(ledPin,OUTPUT);
+  pinMode(switchPin1,INPUT);
+  pinMode(switchPin2,INPUT);
+  
+ void loop(){
+   if (digitalRead(switchPin1) == HIGH)
+   ledLevel = ledLevel + 1 //want it to take 30 s to get to max brightness
+   delay(117)}
+   
+   if (digitalRead(switchPin2) == HIGH)
+   ledLevel = ledLevel -1
+   delay(117)}
