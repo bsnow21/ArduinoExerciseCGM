@@ -36,13 +36,19 @@ void loop()
   }
   else if (currentButton1 == 1)
   {
+    if(TotalTime + ChangeTime<=255){    
       TotalTime += ChangeTime;
+    }
+    else TotalTime = 30000;
   }
   
   currentButton2 = debounce2(lastButton2);
-  if (currentButton2 == 1 && ledLevel != 0)
+  if (currentButton2 == 1)
   {
+    if(TotalTime - ChangeTime>=0){
       TotalTime = TotalTime - ChangeTime;
+    }
+    else TotalTime = 0;
   }
   
   analogWrite(led,ledLevel);
