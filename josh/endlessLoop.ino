@@ -4,11 +4,11 @@ void endlessLoop()
   // continuosuly on
   while(0==0)
   {
-    // set led off for 1 sec
+    // set led off for .5 sec
     analogWrite(led,0);
-    delay(1000);
-    // set led on for 1 sec
+    delay(500);
+    // set led on for .5 sec
     analogWrite(led,255);
-    delay(1000);
+    delay(500);
   }
 }
