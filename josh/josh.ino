@@ -81,7 +81,7 @@ void loop()
   int timeTotal = timeEnd - timeStart;
 
   // change the delay time if the iteration time isn't negligible (if > 1 ms)
-  delay(delayTime-x);
+  delay(delayTime-timeTotal);
 }
 
 // flashing sequence
