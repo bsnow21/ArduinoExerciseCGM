@@ -30,17 +30,7 @@ void loop()
   int timeStart = millis();
   
   // set delay time
-  // 30 sec/256 levels = 0.11719 sec/level
-  // random number generator used to get as close to 0.11719 sec/level as possible
-  int rand = random(1,100);
-  if (rand <= 81)
-  {
-    delayTime = 117;
-  }
-  else
-  {
-    delayTime = 118;
-  }
+  getDelayTime();
   
   // determine "UP" button state
   currentButton1 = debounce1(lastButton1);
@@ -82,51 +72,4 @@ void loop()
 
   // change the delay time if the iteration time isn't negligible (if > 1 ms)
   delay(delayTime-timeTotal);
-}
-
-// flashing sequence
-void endlessLoop()
-{
-  // continuosuly on
-  while(0==0)
-  {
-    // set led off for 1 sec
-    analogWrite(led,0);
-    delay(1000);
-    // set led on for 1 sec
-    analogWrite(led,255);
-    delay(1000);
-  }
-}
-
-// determine "UP" button state
-boolean debounce1(boolean last)
-{
-  // read button state
-  boolean current = digitalRead(button1);
-  // if the button state has changed
-  if(last !=current)
-  {
-    delay(5); //long enough for switch to finish bouncing, not too long to let your finger hit
-    
-    // set current button value
-    current = digitalRead(button1);
-  }
-  return current;
-}
-
-// determine "DOWN" button state
-boolean debounce2(boolean last)
-{
-  // read button state
-  boolean current = digitalRead(button2);
-  // if the button state has changed
-  if(last !=current)
-  {
-    delay(5); //long enough for switch to finish bouncing, not too long to let your finger hit
-
-    // set current button value
-    current = digitalRead(button2);
-  }
-  return current;
 }
